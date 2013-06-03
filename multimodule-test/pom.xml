@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <artifactId>multimodule</artifactId>
+    <groupId>it.amattioli</groupId>
+    <version>1.2-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  
+  <artifactId>multimodule-test</artifactId>
+  <name>Multimodule-Test</name>
+  
+  <dependencies>
+		<dependency>
+			<groupId>it.amattioli</groupId>
+			<artifactId>encapsulate</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.amattioli</groupId>
+			<artifactId>multimodule-db</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.4.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

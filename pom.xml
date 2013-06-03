@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>it.amattioli</groupId>
+	<artifactId>multimodule</artifactId>
+	<version>1.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>MultiModule</name>
+	<description>Multi-module system framework</description>
+	<url>http://www.javate.amattioli.it</url>
+
+	<licenses>
+		<license>
+			<name>LGPL</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.txt</url>
+			<distribution>repo</distribution>
+			<comments>
+	      	JavATE and ZK 5 are distributed under the Lesser General Public License, 
+	      	while ZK 3 and prior versions of ZK are not. If you want to use JavATE 
+	      	with ZK please take a look at ZK site for information about ZK license.
+	        </comments>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>amattioli70</id>
+			<name>Andrea Mattioli</name>
+			<email>andreamattioli@yahoo.it</email>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git://git.code.sf.net/p/javate/multimodulegit</connection>
+		<developerConnection>scm:git:ssh://amattioli70@git.code.sf.net/p/javate/multimodulegit</developerConnection>
+		<url>scm:git:git://git.code.sf.net/p/javate/multimodulegit</url>
+	</scm>
+	
+	<properties>
+		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
+		<javate.version>1.0.7</javate.version>
+	</properties>
+	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>Nexus Release Repository</name>
+			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>3.5.6-Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-core</artifactId>
+				<version>2.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>it.amattioli</groupId>
+				<artifactId>dominate-hibernate</artifactId>
+				<version>${javate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>it.amattioli</groupId>
+				<artifactId>encapsulate</artifactId>
+				<version>${javate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>it.amattioli</groupId>
+				<artifactId>applicate</artifactId>
+				<version>${javate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>it.amattioli</groupId>
+				<artifactId>springate</artifactId>
+				<version>${javate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>it.amattioli</groupId>
+				<artifactId>guidate-zk</artifactId>
+				<version>${javate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.10</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-library</artifactId>
+				<version>1.1</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>Cp1252</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>install</goal>
+						</goals>
+						<configuration>
+							<createChecksum>true</createChecksum>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+                                <version>2.2.1</version>
+				<configuration>
+					<pomFileName>multimodule/pom.xml</pomFileName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>multimodule-db</module>
+		<module>multimodule-test</module>
+		<module>multimodule-zk</module>
+	</modules>
+
+</project>

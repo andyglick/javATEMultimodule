@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<typedef name="euro" class="it.amattioli.encapsulate.money.hibernate.EuroHibernateType"/>
+	
+	<typedef name="timeInterval" class="it.amattioli.encapsulate.dates.hibernate.TimeIntervalHibernateType"/>
+	
+	<typedef name="enum" class="it.amattioli.dominate.hibernate.types.EnumUserType"/>
+	
+	<typedef name="year" class="it.maticasrl.accounting.model.hibernate.YearHibernateType"/>
+	
+	<typedef name="month" class="it.maticasrl.accounting.model.hibernate.MonthHibernateType"/>
+	
+	<typedef name="day" class="it.amattioli.encapsulate.dates.hibernate.DayHibernateType"/>
+	
+</hibernate-mapping>

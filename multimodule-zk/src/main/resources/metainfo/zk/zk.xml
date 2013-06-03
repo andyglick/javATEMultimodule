@@ -1,0 +1,13 @@
+<zk>
+	<listener>
+		<listener-class>it.amattioli.multimodule.zk.init.HibernateInit</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>it.amattioli.multimodule.zk.init.LiquibaseInit</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>it.amattioli.multimodule.zk.init.LabelsInit</listener-class>
+	</listener>	
+</zk>
