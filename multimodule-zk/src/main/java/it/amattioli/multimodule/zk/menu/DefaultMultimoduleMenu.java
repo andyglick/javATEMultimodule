@@ -5,34 +5,46 @@ import java.util.Collections;
 import java.util.List;
 
 public class DefaultMultimoduleMenu implements MultimoduleMenu {
+	private String name;
 	private String description;
 	private int order = 1;
 	private List<MultimoduleMenuItem> items;
 	
 	public DefaultMultimoduleMenu() {
-		this("", Collections.EMPTY_LIST);
+		this("", "", Collections.EMPTY_LIST);
 	}
 	
-	public DefaultMultimoduleMenu(String description, List<MultimoduleMenuItem> items) {
+	public DefaultMultimoduleMenu(String name, String description, List<MultimoduleMenuItem> items) {
+		this.name = name;
 		this.description = description;
 		this.items = items;
 	}
 	
-	public DefaultMultimoduleMenu(String description, MultimoduleMenuItem... items) {
+	public DefaultMultimoduleMenu(String name, String description, MultimoduleMenuItem... items) {
+		this.name = name;
 		this.description = description;
 		this.items = Arrays.asList(items);
 	}
 	
-	public DefaultMultimoduleMenu(String description, int order, List<MultimoduleMenuItem> items) {
-		this(description,items);
+	public DefaultMultimoduleMenu(String name, String description, int order, List<MultimoduleMenuItem> items) {
+		this(name, description, items);
 		this.order = order;
 	}
 	
-	public DefaultMultimoduleMenu(String description, int order, MultimoduleMenuItem... items) {
-		this(description,items);
+	public DefaultMultimoduleMenu(String name, String description, int order, MultimoduleMenuItem... items) {
+		this(name, description, items);
 		this.order = order;
 	}
 	
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String getDescription() {
 		return description;

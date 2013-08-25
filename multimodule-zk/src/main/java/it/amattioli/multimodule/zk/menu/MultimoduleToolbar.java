@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ServiceLoader;
 
+import org.apache.commons.lang.ObjectUtils;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.GenericComposer;
 import org.zkoss.zul.Tab;
@@ -48,6 +50,8 @@ public class MultimoduleToolbar extends GenericComposer {
 	private Tab createTab(MultimoduleMenu menu) {
 		Tab tab = new Tab();
 		tab.setLabel(menu.getDescription());
+		String selectedMenu = Executions.getCurrent().getParameter("menu");
+		tab.setSelected(ObjectUtils.equals(menu.getName(),selectedMenu));
 		return tab;
 	}
 	
@@ -60,19 +64,19 @@ public class MultimoduleToolbar extends GenericComposer {
 		toolbar.setAlign("center");
 		toolbar.setVflex("1");
 		for (MultimoduleMenuItem item: menu.getItems()) {
-			Toolbarbutton buttonitem = createButtonItem(item);
+			Toolbarbutton buttonitem = createButtonItem(menu,item);
 			buttonitem.setParent(toolbar);
 		}
 		toolbar.setParent(panel);
 		return panel;
 	}
 
-	private Toolbarbutton createButtonItem(MultimoduleMenuItem item) {
+	private Toolbarbutton createButtonItem(MultimoduleMenu menu, MultimoduleMenuItem item) {
 		Toolbarbutton menuitem = new Toolbarbutton();
 		menuitem.setLabel(item.getLabel());
 		menuitem.setImage(item.getImageUrl());
 		menuitem.setOrient("vertical");
-		menuitem.setHref("menutarget.zul?targeturl="+item.getTargetUrl()+"&title="+item.getLabel());
+		menuitem.setHref("menutarget.zul?menu="+menu.getName()+"&targeturl="+item.getTargetUrl()+"&title="+item.getLabel());
 		return menuitem;
 	}
 	
