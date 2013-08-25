@@ -6,6 +6,7 @@ import java.util.List;
 
 public class DefaultMultimoduleMenu implements MultimoduleMenu {
 	private String description;
+	private int order = 1;
 	private List<MultimoduleMenuItem> items;
 	
 	public DefaultMultimoduleMenu() {
@@ -22,6 +23,16 @@ public class DefaultMultimoduleMenu implements MultimoduleMenu {
 		this.items = Arrays.asList(items);
 	}
 	
+	public DefaultMultimoduleMenu(String description, int order, List<MultimoduleMenuItem> items) {
+		this(description,items);
+		this.order = order;
+	}
+	
+	public DefaultMultimoduleMenu(String description, int order, MultimoduleMenuItem... items) {
+		this(description,items);
+		this.order = order;
+	}
+	
 	@Override
 	public String getDescription() {
 		return description;
@@ -29,6 +40,14 @@ public class DefaultMultimoduleMenu implements MultimoduleMenu {
 	
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
 	}
 
 	@Override

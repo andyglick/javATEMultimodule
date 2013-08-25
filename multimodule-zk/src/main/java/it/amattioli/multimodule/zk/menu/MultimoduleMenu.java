@@ -8,4 +8,6 @@ public interface MultimoduleMenu {
 	
 	public List<MultimoduleMenuItem> getItems();
 	
+	public int getOrder();
+	
 }

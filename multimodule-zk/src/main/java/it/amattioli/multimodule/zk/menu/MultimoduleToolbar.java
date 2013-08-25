@@ -1,6 +1,8 @@
 package it.amattioli.multimodule.zk.menu;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ServiceLoader;
 
@@ -21,6 +23,14 @@ public class MultimoduleToolbar extends GenericComposer {
 				menus.add(menu);
 			}
 		}
+		Collections.sort(menus, new Comparator<MultimoduleMenu>() {
+
+			@Override
+			public int compare(MultimoduleMenu menu1, MultimoduleMenu menu2) {
+				return new Integer(menu1.getOrder()).compareTo(menu2.getOrder());
+			}
+			
+		});
 	}
 	
 	public void onCreate(Event evt) {
