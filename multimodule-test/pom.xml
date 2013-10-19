@@ -4,7 +4,7 @@
   <parent>
     <artifactId>multimodule</artifactId>
     <groupId>it.amattioli</groupId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
   
